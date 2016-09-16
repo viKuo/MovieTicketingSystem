@@ -25,4 +25,8 @@ class Showtime < ApplicationRecord
 		end
 		true
 	end
+
+	def tickets_left
+		self.auditorium.seating - self.tickets.length
+	end
 end
