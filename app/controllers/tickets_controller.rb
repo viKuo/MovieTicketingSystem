@@ -1,9 +1,4 @@
 class TicketsController < ApplicationController
-
-	def index
-		@movies = Movie.all
-	end
-
 	def create
 		if !credit_card_params.length == 16
 			flash[:error] = "Credit card number invalid"

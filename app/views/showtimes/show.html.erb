@@ -3,3 +3,5 @@
 <p>There are <%= @showtime.tickets_left %> seats left for this showing.</p>
 
 <%= render "tickets/buying_form", showtime: @showtime %>
+
+<%= link_to "Back", root_path %>

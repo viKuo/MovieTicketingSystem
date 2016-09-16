@@ -1,5 +1,9 @@
 class ShowtimesController < ApplicationController
 
+	def index
+		@movies = Movie.all
+	end
+	
 	def create
 		showtime = Showtime.new(showtime_params)
 		if showtime.valid?
