@@ -1,7 +1,16 @@
-<h1>view all tickets sold</h1>
+<h1>view all tickets sold per movie</h1>
 
 <ul>
 	<% movies.each do |movie| %>
 	<li><%= movie.name%>: <%= movie.tickets.length %> sold </li>
+	<% end %>
+</ul>
+
+<h1>view all sales</h1>
+<ul>
+	<% tickets.each do |ticket| %>
+	<li><%= ticket.showtime.movie.name %> at 
+		<%= format_time(ticket.showtime.time) %> 
+		bought by <%= ticket.customer%></li>
 	<% end %>
 </ul>
