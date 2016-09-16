@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'auditoria#index'
   resources :auditoria
   resources :movies
+  resources :showtimes
 end

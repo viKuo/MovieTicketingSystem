@@ -1,0 +1,7 @@
+<h2>Show times for this Auditorium:</h2>
+
+<ul>
+	<% showtimes.each do |showtime| %>
+		<li><%= showtime.movie.name %>: <%= format_time(showtime.time) %></li>
+	<% end %>
+</ul>

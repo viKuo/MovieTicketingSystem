@@ -1,4 +1,11 @@
 <h1><%= @auditorium.name %> Auditorium</h1>
 
-Choose a movie to show here:
-<%= collection_select :movie, :movie_id, Movie.order(:name),:id,:name, include_blank: true %>
+Add a movie and a showtime:
+<%= form_for Showtime.new, action: "create" do |f| %>
+	<%= f.text_field :auditorium_id, value: "#{@auditorium.id}", type: :hidden %>
+	<%= f.collection_select :movie_id, Movie.order(:name), :id, :name, include_blank: true %>
+	<%= f.time_field(:time, placeholder: "ie 13:00:00 CDT") %>
+	<%= f.submit("Add Showtime") %>
+<% end %>
+
+<%= render '/showtimes/show', showtimes: @auditorium.showtimes %>
