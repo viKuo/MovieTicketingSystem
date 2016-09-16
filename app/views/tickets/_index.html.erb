@@ -1,0 +1,7 @@
+<h1>view all tickets sold</h1>
+
+<ul>
+	<% movies.each do |movie| %>
+	<li><%= movie.name%>: <%= movie.tickets.length %> sold </li>
+	<% end %>
+</ul>

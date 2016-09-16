@@ -1,7 +1,8 @@
 class AdminController < ApplicationController
 	def index
 		@auditoria = Auditorium.all
-		@tickets = Tickets.all
+		@movies = Movie.all
+		@tickets = Ticket.all
 	end
 
 end
