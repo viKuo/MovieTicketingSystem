@@ -1,0 +1,4 @@
+<h1><%= @auditorium.name %> Auditorium</h1>
+
+Choose a movie to show here:
+<%= collection_select :movie, :movie_id, Movie.order(:name),:id,:name, include_blank: true %>

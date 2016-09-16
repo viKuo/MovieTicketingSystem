@@ -1,0 +1,7 @@
+<h1> view all auditoria </h1>
+
+<ul>
+	<% @auditoria.each do |auditorium| %>
+	<li><%= link_to "#{auditorium.name} Auditorium", auditorium_path(auditorium) %>: <%= auditorium.seating %> seats</li>
+	<% end %>
+</ul>
