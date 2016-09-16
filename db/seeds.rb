@@ -13,11 +13,11 @@ auditoria = Auditorium.create!([
 	{ name: Faker::Name.last_name, seating: "60" }, 
 	{ name: Faker::Name.last_name, seating: "90" } ])
 
-movies = Movie.create([
-	{ name: "Pirates of the Carribean", duration: "120 minutes"},
-	{ name: "Whiplash", duration: "105 minutes"},
-	{ name: "Spirited Away", duration: "125 minutes"},
-	{ name: "Interstellar", duration: "169 minutes"},
+movies = Movie.create!([
+	{ name: "Pirates of the Carribean", duration: 120 },
+	{ name: "Whiplash", duration: 105 },
+	{ name: "Spirited Away", duration: 125},
+	{ name: "Interstellar", duration: 169},
 	])
 
 movies.each do |movie|
@@ -27,14 +27,8 @@ movies.each do |movie|
 	movie.showtimes.create!({ time: "19:00:00 CDT", auditorium_id: movie.id})
 end
 
-customers = 5.times do 
-	Customer.create!({email:Faker::Internet.email})
-end
-
-customers = Customer.all
-
 showtimes = Showtime.all
 
-30.times do |time|
-	showtimes[rand(15)].tickets.create!({customer_id: customers[rand(4)].id})
+30.times do
+	showtimes[rand(15)].tickets.create!(customer: Faker::Internet.email)
 end

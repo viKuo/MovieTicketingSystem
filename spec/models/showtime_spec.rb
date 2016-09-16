@@ -17,10 +17,9 @@ describe Showtime do
 
 		it "has many tickets" do
 			showtime = Showtime.create!(movie_id: movie.id, auditorium_id: auditorium.id, time: "13:00:00 CST")
-			customer = Customer.create!(email:"v@g.com")
 
 			5.times do 
-				showtime.tickets.create!(customer_id:customer.id)
+				showtime.tickets.create!(customer: "v@g.com")
 			end
 
 			expect(showtime.tickets.length).to be >0
@@ -41,12 +40,13 @@ describe Showtime do
 			showtime.valid?
 			expect(showtime.errors.full_messages).to eq(["Showtime cannot end after another movie starts"])
 		end
+	end
 
+	describe "Virtual attributes for showtime" do
 		it "should know how many tickets left per showtime" do
 			showtime = Showtime.create(movie_id:movie.id, auditorium_id: auditorium.id, time:"12:00:00 CST")
-			customer = Customer.create!(email:"v@g.com")
 			25.times do 
-				showtime.tickets.create!(customer_id: customer.id)
+				showtime.tickets.create!(customer: "v@g.com")
 			end
 			seats_left = auditorium.seating - showtime.tickets.length
 			expect(showtime.tickets_left).to eq(seats_left)

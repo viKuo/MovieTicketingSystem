@@ -12,11 +12,8 @@ describe Auditorium do
 		end
 
 		it "has many tickets" do
-			customer = Customer.create!(email:"v@g.com")
 			showtime = Showtime.create!(movie_id: movie.id, auditorium_id: auditorium.id, time: "13:00:00 CST")
-			showtime.tickets.create!(customer_id: customer.id)
-			showtime.tickets.create!(customer_id: customer.id)
-			showtime.tickets.create!(customer_id: customer.id)
+			3.times { showtime.tickets.create!(customer:"v@g.com") }
 			expect(auditorium.tickets.length).to be >0
 		end
 	end

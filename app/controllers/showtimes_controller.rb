@@ -16,6 +16,10 @@ class ShowtimesController < ApplicationController
 		redirect_to :back
 	end
 
+	def show
+		@showtime = Showtime.find(params[:id])
+	end
+
 	private
   def showtime_params
     params.require(:showtime).permit(:movie_id, :auditorium_id, :time)
