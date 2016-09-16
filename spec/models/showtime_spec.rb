@@ -26,5 +26,21 @@ describe Showtime do
 			expect(showtime.tickets.length).to be >0
 		end
 	end
+
+	describe "Validtations for showtimes" do
+		it "cannot start before a movie ends" do
+			Showtime.create!(movie_id:movie.id, auditorium_id: auditorium.id, time: "13:00:00 CST")
+			showtime = Showtime.create(movie_id:movie.id, auditorium_id: auditorium.id, time:"14:00:00 CST")
+			showtime.valid?
+			expect(showtime.errors.full_messages).to eq(["Showtime cannot start before another movie ends"])
+		end
+
+		it "cannot end after a movie starts" do
+			Showtime.create!(movie_id:movie.id, auditorium_id: auditorium.id, time: "13:00:00 CST")
+			showtime = Showtime.create(movie_id:movie.id, auditorium_id: auditorium.id, time:"12:00:00 CST")
+			showtime.valid?
+			expect(showtime.errors.full_messages).to eq(["Showtime cannot end after another movie starts"])
+		end
+	end
 	
 end

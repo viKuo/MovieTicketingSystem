@@ -10,6 +10,15 @@ describe Auditorium do
 			Showtime.create!(movie_id: movie.id, auditorium_id: auditorium.id, time: "18:00:00 CST")
 			expect(auditorium.showtimes.length).to be >0
 		end
+
+		it "has many tickets" do
+			customer = Customer.create!(email:"v@g.com")
+			showtime = Showtime.create!(movie_id: movie.id, auditorium_id: auditorium.id, time: "13:00:00 CST")
+			showtime.tickets.create!(customer_id: customer.id)
+			showtime.tickets.create!(customer_id: customer.id)
+			showtime.tickets.create!(customer_id: customer.id)
+			expect(auditorium.tickets.length).to be >0
+		end
 	end
 
 end
