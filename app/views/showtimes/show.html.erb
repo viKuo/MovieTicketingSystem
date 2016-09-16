@@ -1,2 +1,5 @@
 <h2><%= @showtime.movie.name%> at <%= format_time(@showtime.time)%></h2>
+
+<p>There are <%= @showtime.tickets_left %> seats left for this showing.</p>
+
 <%= render "tickets/buying_form", showtime: @showtime %>

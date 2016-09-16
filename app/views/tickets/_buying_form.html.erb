@@ -1,8 +1,14 @@
-<%= form_for :ticket, url: new_ticket_url do |f| %>
+<% if flash[:error] %>
+	<div class="error">
+		<%= flash[:error] %>
+	</div>
+<% end %>
+
+<%= form_for Ticket.new, method: "POST" do |f| %>
 	<%= f.text_field :showtime_id, value: showtime.id, hidden: true %>
-	<%= label_tag :email, "Email:" %>
-	<%= f.text_field :email %>
+	<%= label_tag :customer, "Email:" %>
+	<%= f.text_field :customer %>
 	<%= label_tag :credit_card_number, "Enter credit card number:" %>
-	<%= f.text_field :credit_card_number %>
+	<%= text_field_tag :credit_card_number %>
 	<%= f.submit "Buy" %>
 <% end %>
