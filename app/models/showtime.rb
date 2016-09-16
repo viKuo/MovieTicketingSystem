@@ -1,8 +1,10 @@
 class Showtime < ApplicationRecord
+	validate :showtimes_cannot_overlap
+	validate :audiorium_id, :movie_id, presence: true
+	 
 	belongs_to :movie
 	belongs_to :auditorium
 	has_many :tickets
-	validate :showtimes_cannot_overlap
 
 	def showtimes_cannot_overlap
 		showtimes_in_same_aud = Showtime.where(auditorium_id: self.auditorium.id)
