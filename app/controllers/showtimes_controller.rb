@@ -1,7 +1,12 @@
 class ShowtimesController < ApplicationController
 
 	def create
-		Showtime.create!(showtime_params)
+		showtime = Showtime.new(showtime_params)
+		if showtime.valid?
+			showtime.save
+		else
+			flash[:error] = showtime.errors.full_messages[0]
+		end
 		redirect_to auditorium_url(showtime_params[:auditorium_id])
 	end
 

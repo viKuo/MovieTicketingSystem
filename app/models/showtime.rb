@@ -1,6 +1,6 @@
 class Showtime < ApplicationRecord
 	validate :showtimes_cannot_overlap
-	validate :audiorium_id, :movie_id, presence: true
+	validates :auditorium_id, :movie_id, presence: true
 	 
 	belongs_to :movie
 	belongs_to :auditorium

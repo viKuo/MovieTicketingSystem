@@ -1,4 +1,12 @@
 Add a movie and a showtime:
+
+<% if flash[:error] %>
+<div class="errors">
+	Error!
+	<%= flash[:error] %>
+</div>
+<% end %>
+
 <%= form_for Showtime.new, action: "create" do |f| %>
 	<%= f.text_field :auditorium_id, value: "#{@auditorium.id}", type: :hidden %>
 	<%= f.collection_select :movie_id, Movie.order(:name), :id, :name, include_blank: true %>
