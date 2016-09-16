@@ -1,11 +1,14 @@
 class ShowtimesController < ApplicationController
 
-	def index
-	end
-
 	def create
 		Showtime.create!(showtime_params)
 		redirect_to auditorium_url(showtime_params[:auditorium_id])
+	end
+
+	def destroy
+		showtime = Showtime.find(params[:id])
+		showtime.destroy
+		redirect_to :back
 	end
 
 	private
