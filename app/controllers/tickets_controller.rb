@@ -7,6 +7,9 @@ class TicketsController < ApplicationController
 		elsif !ticket.valid?
 			flash[:error] = ticket.errors.full_messages
 			redirect_to :back
+		elsif ticket.showtime.tickets_left <= 0
+			flash[:notice] = "Sorry, there are no more seats left for this showing! Please choose another movie"
+			redirect_to root_path
 		else
 			ticket.save
 			flash[:notice] = "You have bought a ticket. Please check your inbox for a receipt."
