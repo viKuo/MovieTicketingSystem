@@ -5,7 +5,7 @@
 [Live demo admin 'backend' here](https://movie-ticketing-system.herokuapp.com/admin)
 
 ##Schema
-[relational database design](https://raw.githubusercontent.com/viKuo/MovieTicketingSystem/master/Schema-design.png)
+[relational database design](https://github.com/viKuo/MovieTicketingSystem/blob/master/Schema-design.png)
 Originally I had another customer table that saved the email of the customer and the foreign key of ticket. However, I realized that since users are not required to log in and I was not saving credit card information, that table is not necessary. The customer field of the database should be an email.
 
 ## Validations
@@ -56,7 +56,7 @@ Overall, the website is a basic CRUD app. The only thing really shiny about it i
 ```
 
 
-[Showtime Validation Visual](https://raw.githubusercontent.com/viKuo/MovieTicketingSystem/master/Showtime-overlap-validation-example.png)
+[Showtime Validation Visual](https://github.com/viKuo/MovieTicketingSystem/blob/master/)Showtime-overlap-validation-example.png)
 
 The idea behind this code is that I want to find, as the visual above shows, either 1) the start time of the new showtime is between the showing of another movie, or 2) the end time of the new showtime is between the showing of another movie. Either one of these will cause overlap. If neither is true, then showtime is valid. The showtime/duration is calculated via movie length when entered into the system in munutes.
 
