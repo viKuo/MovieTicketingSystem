@@ -8,8 +8,9 @@ class TicketsController < ApplicationController
 			flash[:error] = ticket.error.full_messages
 			redirect_to :back
 		else
-			Ticket.create!(ticket_params)
+			ticket.save
 			flash[:notice] = "You have bought a ticket. Please check your inbox for a receipt."
+			ReceiptMailer.receipt_email(ticket).deliver_now
 			redirect_to root_path
 		end
 	end
