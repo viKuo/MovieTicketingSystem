@@ -1,15 +1,15 @@
 <h1>view all tickets sold per movie</h1>
 
-<ul>
+<ul class='mdl-list'>
 	<% movies.each do |movie| %>
-	<li><%= movie.name%>: <%= movie.tickets.length %> sold </li>
+	<li class='mdl-list__item'><%= movie.name%>: <%= movie.tickets.length %> sold </li>
 	<% end %>
 </ul>
 
 <h1>view all sales</h1>
-<ul>
+<ul class='mdl-list'>
 	<% tickets.each do |ticket| %>
-	<li><%= ticket.showtime.movie.name %> at 
+	<li class='mdl-list__item'><%= ticket.showtime.movie.name %> at 
 		<%= format_time(ticket.showtime.time) %> 
 		bought by <%= ticket.customer%></li>
 	<% end %>

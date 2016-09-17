@@ -1,7 +1,7 @@
 <h1> view all auditoria </h1>
 
-<ul>
+<ul class='mdl-list'>
 	<% auditoria.each do |auditorium| %>
-	<li><%= link_to "#{auditorium.name} Auditorium", auditorium_path(auditorium) %>: <%= auditorium.seating %> seats</li>
+	<li class='mdl-list__item'><%= link_to "#{auditorium.name} Auditorium", auditorium_path(auditorium) %>: <%= auditorium.seating %> seats</li>
 	<% end %>
 </ul>

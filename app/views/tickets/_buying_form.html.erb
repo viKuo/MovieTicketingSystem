@@ -1,10 +1,14 @@
 <%= render 'messages/error' %>
 
 <%= form_for Ticket.new, method: "POST" do |f| %>
-	<%= f.text_field :showtime_id, value: showtime.id, hidden: true %>
-	<%= label_tag :customer, "Email:" %>
-	<%= f.text_field :customer %>
-	<%= label_tag :credit_card_number, "Enter credit card number:" %>
-	<%= text_field_tag :credit_card_number %>
-	<%= f.submit "Buy" %>
+	<%= f.text_field :showtime_id, value: showtime.id, hidden: true, class: "mdl-textfield__input", class: "mdl-textfield__input" %>
+<div class="mdl-textfield mdl-js-textfield">
+	<%= label_tag :customer, "Email:", class:"mdl-textfield__label"  %>
+	<%= f.text_field :customer, class: "mdl-textfield__input" %>
+</div><br />
+<div class="mdl-textfield mdl-js-textfield">
+	<%= label_tag :credit_card_number, "Enter credit card number:", class:"mdl-textfield__label"  %>
+	<%= text_field_tag :credit_card_number, nil, class: "mdl-textfield__input" %>
+</div><br />
+	<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">Buy</button>
 <% end %>

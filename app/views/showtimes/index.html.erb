@@ -5,10 +5,12 @@
 <h5>Choose a showtime to begin your purchase</h5> 
 
 <% @movies.each do |movie| %>
-	<h4><%= movie.name %> showtimes for today:</h4>
-	<ul>
+<div>
+	<button id="<%= movie %>"class="mdl-button mdl-js-button mdl-button--primary"><%= movie.name %> showtimes for today</button>
+	<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="<%= movie %>">
 		<% movie.showtimes.order(time: :asc).each do |showtime| %>
-			<li><%= link_to format_time(showtime.time), showtime_path(showtime) %></li>
+			<li class="mdl-menu__item"><%= link_to format_time(showtime.time), showtime_path(showtime) %></li>
 		<% end %>
 	</ul>
+</div>
 <% end %>

@@ -4,7 +4,11 @@ Add a movie and a showtime:
 
 <%= form_for Showtime.new, action: "create" do |f| %>
 	<%= f.text_field :auditorium_id, value: "#{@auditorium.id}", type: :hidden %>
+<div class="mdl-textfield mdl-js-textfield">
 	<%= f.collection_select :movie_id, Movie.order(:name), :id, :name, include_blank: true %>
-	<%= f.time_field(:time, placeholder: "ie 13:00:00 CDT") %>
-	<%= f.submit("Add Showtime") %>
+</div><br />
+<div class="mdl-textfield mdl-js-textfield">
+	<%= f.time_field(:time, placeholder: "ie 13:00:00 CDT", class: "mdl-textfield__input" ) %>
+</div><br />
+	<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">Add Showtime</button>
 <% end %>
