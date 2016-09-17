@@ -56,9 +56,12 @@ Overall, the website is a basic CRUD app. The only thing really shiny about it i
 ```
 
 
-[Showtime Validation Visual](https://github.com/viKuo/MovieTicketingSystem/blob/master/)Showtime-overlap-validation-example.png)
+[Showtime Validation Visual](https://github.com/viKuo/MovieTicketingSystem/blob/master/Showtime-overlap-validation-example.png)
 
 The idea behind this code is that I want to find, as the visual above shows, either 1) the start time of the new showtime is between the showing of another movie, or 2) the end time of the new showtime is between the showing of another movie. Either one of these will cause overlap. If neither is true, then showtime is valid. The showtime/duration is calculated via movie length when entered into the system in munutes.
+
+## Minor bugs
+I am not sure what the deal with the timezones are. The showtimes are not in chronological order because the defalt is UTC time, so 6pm is 12am and that comes before all the other times. However, since I change the format of it to CST, 6pm comes before everything. In the email you can also see how the time is saved (which is incorrectly). I am not sure how to solve this issue.
 
 ## Conclusion
 Thank you for taking the time to read my long spiel, checkout my demo and my code. Please let me know if you have any other questions.
