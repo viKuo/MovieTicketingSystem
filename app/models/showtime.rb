@@ -17,8 +17,7 @@ class Showtime < ApplicationRecord
 			if (other_movie_showtime < movie_start && movie_start < other_movie_endtime)
 				errors.add(:showtime, "cannot start before another movie ends")
 				return false
-			end
-			if (other_movie_showtime < movie_end && movie_end < other_movie_endtime)
+			elsif (other_movie_showtime < movie_end && movie_end < other_movie_endtime)
 				errors.add(:showtime, "cannot end after another movie starts")
 				return false
 			end
