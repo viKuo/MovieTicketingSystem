@@ -1,11 +1,11 @@
 class TicketsController < ApplicationController
 	def create
 		ticket = Ticket.new(ticket_params)
-		if !credit_card_params.length == 16 
-			flash[:error] = "Credit card number invalid"
+		if !credit_card_params.length == 16 || credit_card_params.match(/\D/)
+			flash[:error] = ["Credit card number invalid"]
 			redirect_to :back
 		elsif !ticket.valid?
-			flash[:error] = ticket.error.full_messages
+			flash[:error] = ticket.errors.full_messages
 			redirect_to :back
 		else
 			ticket.save

@@ -1,7 +1,7 @@
 <h2>Show times for this Auditorium:</h2>
 
-<ul>
+<ul class='mdl-list'>
 	<% showtimes.each do |showtime| %>
-		<li><%= showtime.movie.name %>: <%= format_time(showtime.time) %> <%= link_to 'Delete', showtime_url(showtime), method: "DELETE" %></li>
+		<li class='mdl-list__item'><%= showtime.movie.name %>: <%= format_time(showtime.time) %> <%= link_to 'Delete', showtime_url(showtime), method: "DELETE" %></li>
 	<% end %>
 </ul>

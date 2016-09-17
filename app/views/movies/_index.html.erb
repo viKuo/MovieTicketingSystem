@@ -1,7 +1,7 @@
 <h1> view all Movies </h1>
 
-<ul>
+<ul class='mdl-list'>
 	<% movies.each do |movie| %>
-		<li> <%= movie.name %>: <%= movie.duration %> minutes long </li>
+		<li class='mdl-list__item'> <%= movie.name %>: <%= movie.duration %> minutes long </li>
 	<% end %>
 </ul>

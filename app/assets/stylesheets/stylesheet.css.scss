@@ -1,0 +1,26 @@
+body {
+	background-image: url(image_path("confectionary.png"));
+}
+
+#container {
+	width:800px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:15px;
+}
+
+form {
+	background-color:#e6e6e6;
+	margin:0 20px 0 20px;
+	width:500px;
+	margin:0 auto 10px auto;
+	padding:10px;
+}
+
+.center-align {
+	text-align:center;
+}
+
+a{
+	padding:10px;
+}
