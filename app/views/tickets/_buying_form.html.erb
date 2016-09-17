@@ -1,8 +1,4 @@
-<% if flash[:error] %>
-	<div class="error">
-		<%= flash[:error] %>
-	</div>
-<% end %>
+<%= render 'messages/error' %>
 
 <%= form_for Ticket.new, method: "POST" do |f| %>
 	<%= f.text_field :showtime_id, value: showtime.id, hidden: true %>

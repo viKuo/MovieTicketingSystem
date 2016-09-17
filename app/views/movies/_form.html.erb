@@ -1,0 +1,7 @@
+<%= form_for movie do |f| %>
+	<%= label_tag :name, "Name" %>
+	<%= f.text_field :name %>
+	<%= label_tag :duration, "Movie length in minutes" %>
+	<%= f.text_field :duration %>
+	<%= f.submit "Add" %>
+<% end %>

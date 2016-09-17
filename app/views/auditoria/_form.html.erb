@@ -1,0 +1,7 @@
+<%= form_for auditorium do |f| %>
+	<%= label_tag :name, "Name" %>
+	<%= f.text_field :name %>
+	<%= label_tag :seating, "Number of seats" %>
+	<%= f.text_field :seating %>
+	<%= f.submit "Add" %>
+<% end %>
