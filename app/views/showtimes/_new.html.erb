@@ -1,0 +1,10 @@
+Add a movie and a showtime:
+
+<%= render 'messages/error' %>
+
+<%= form_for Showtime.new, action: "create" do |f| %>
+	<%= f.text_field :auditorium_id, value: "#{@auditorium.id}", type: :hidden %>
+	<%= f.collection_select :movie_id, Movie.order(:name), :id, :name, include_blank: true %>
+	<%= f.time_field(:time, placeholder: "ie 13:00:00 CDT") %>
+	<%= f.submit("Add Showtime") %>
+<% end %>

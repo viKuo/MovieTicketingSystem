@@ -1,0 +1,14 @@
+<h1>Welcome!</h1>
+
+<%= render 'messages/notice' %>
+
+<h5>Choose a showtime to begin your purchase</h5> 
+
+<% @movies.each do |movie| %>
+	<h4><%= movie.name %> showtimes for today:</h4>
+	<ul>
+		<% movie.showtimes.order(time: :asc).each do |showtime| %>
+			<li><%= link_to format_time(showtime.time), showtime_path(showtime) %></li>
+		<% end %>
+	</ul>
+<% end %>

@@ -1,0 +1,11 @@
+<%= link_to "Ticket purchasing view", root_path%>
+
+<%= render 'auditoria/index', auditoria: @auditoria %>
+
+<%= link_to "Add an auditorium", new_auditorium_path %>
+
+<%= render'movies/index', movies: @movies%>
+
+<%= link_to "Add a movie", new_movie_path %>
+
+<%= render 'tickets/index', movies: @movies, tickets:@tickets %>

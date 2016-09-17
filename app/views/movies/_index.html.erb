@@ -1,0 +1,7 @@
+<h1> view all Movies </h1>
+
+<ul>
+	<% movies.each do |movie| %>
+		<li> <%= movie.name %>: <%= movie.duration %> minutes long </li>
+	<% end %>
+</ul>

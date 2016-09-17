@@ -1,4 +1,7 @@
 <h1><%= @auditorium.name %> Auditorium</h1>
 
-Choose a movie to show here:
-<%= collection_select :movie, :movie_id, Movie.order(:name),:id,:name, include_blank: true %>
+<%= render '/showtimes/new' %>
+
+<%= render '/showtimes/show', showtimes: @auditorium.showtimes %>
+
+<%= link_to "Back", admin_index_path %>
