@@ -3,7 +3,7 @@
 <%= render 'messages/notice' %>
 
 <h5>Choose a showtime to begin your purchase</h5> 
-
+<h6>Each ticket is $10.00</h6>
 <% @movies.each do |movie| %>
 <div>
 	<button id="<%= movie %>"class="mdl-button mdl-js-button mdl-button--primary"><%= movie.name %> showtimes for today</button>
