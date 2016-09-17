@@ -1,5 +1,5 @@
 class ReceiptMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'receipts@movieticketingsystem.com'
  
   def receipt_email(ticket)
     @ticket = ticket
