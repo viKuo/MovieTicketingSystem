@@ -17,4 +17,3 @@
 .byebug_history
 
 .env
-config/secrets.yml
